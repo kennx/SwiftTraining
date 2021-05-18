@@ -48,43 +48,43 @@ class RestaurantTableViewController: UITableViewController {
     return cell
   }
   
-  override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-    let optionMenu = UIAlertController(title: nil, message: "What do you want to do?", preferredStyle: .actionSheet)
-    
-    if let popoverController = optionMenu.popoverPresentationController {
-      if let cell = tableView.cellForRow(at: indexPath) {
-        popoverController.sourceView = cell
-        popoverController.sourceRect = cell.bounds
-      }
-    }
-    
-    let callAcionHandler = { (action: UIAlertAction!) -> Void in
-      let alertMessage = UIAlertController(title: "Service Unavailable", message: "Sorry, the call feature is not available yet. Please retry later.", preferredStyle: .alert)
-      alertMessage.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
-      self.present(alertMessage, animated: true, completion: nil)
-    }
-    
-    
-    let callAction = UIAlertAction(title: "Call 123-000-\(indexPath.row)", style: .default, handler: callAcionHandler)
-    
-    optionMenu.addAction(callAction)
-    
-    
-    
-    let title = self.restaurantIsVisited[indexPath.row] ? "Undo Check-in" : "Check in"
-    
-    let checkInAction = UIAlertAction(title: title, style: .default, handler: { (action: UIAlertAction!) -> Void in
-      let cell = tableView.cellForRow(at: indexPath) as! RestaurantTableViewCell
-      cell.heartTick.isHidden = self.restaurantIsVisited[indexPath.row]
-      self.restaurantIsVisited[indexPath.row] = self.restaurantIsVisited[indexPath.row] ? false : true
-    })
-    optionMenu.addAction(checkInAction)
-    
-    
-    present(optionMenu, animated: true, completion: nil)
-    
-    tableView.deselectRow(at: indexPath, animated: false)
-  }
+//  override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+//    let optionMenu = UIAlertController(title: nil, message: "What do you want to do?", preferredStyle: .actionSheet)
+//    
+//    if let popoverController = optionMenu.popoverPresentationController {
+//      if let cell = tableView.cellForRow(at: indexPath) {
+//        popoverController.sourceView = cell
+//        popoverController.sourceRect = cell.bounds
+//      }
+//    }
+//
+//    let callAcionHandler = { (action: UIAlertAction!) -> Void in
+//      let alertMessage = UIAlertController(title: "Service Unavailable", message: "Sorry, the call feature is not available yet. Please retry later.", preferredStyle: .alert)
+//      alertMessage.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+//      self.present(alertMessage, animated: true, completion: nil)
+//    }
+//
+//
+//    let callAction = UIAlertAction(title: "Call 123-000-\(indexPath.row)", style: .default, handler: callAcionHandler)
+//
+//    optionMenu.addAction(callAction)
+//
+//
+//
+//    let title = self.restaurantIsVisited[indexPath.row] ? "Undo Check-in" : "Check in"
+//
+//    let checkInAction = UIAlertAction(title: title, style: .default, handler: { (action: UIAlertAction!) -> Void in
+//      let cell = tableView.cellForRow(at: indexPath) as! RestaurantTableViewCell
+//      cell.heartTick.isHidden = self.restaurantIsVisited[indexPath.row]
+//      self.restaurantIsVisited[indexPath.row] = self.restaurantIsVisited[indexPath.row] ? false : true
+//    })
+//    optionMenu.addAction(checkInAction)
+//
+//
+//    present(optionMenu, animated: true, completion: nil)
+//
+//    tableView.deselectRow(at: indexPath, animated: false)
+//  }
   
   override func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
     
@@ -154,6 +154,20 @@ class RestaurantTableViewController: UITableViewController {
     
     return swipeConfiguration
     
+  }
+  
+  override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+    if segue.identifier == "showRestaurantDetail" {
+      print("ddddccc", "===========>")
+      if let indexPath = tableView.indexPathForSelectedRow {
+        print(indexPath.row, "-------------->")
+        let destinationController = segue.destination as! RestaurantDetailViewController
+        destinationController.restaurantImageName = restaurantImages[indexPath.row]
+        destinationController.restaurantName = restaurantNames[indexPath.row]
+        destinationController.restaurantTypeName = restaurantTypes[indexPath.row]
+        destinationController.restaurantLocationName = restaurantLocations[indexPath.row]
+      }
+    }
   }
   
 }
