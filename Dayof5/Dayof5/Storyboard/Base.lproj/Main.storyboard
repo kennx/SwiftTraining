@@ -1,0 +1,281 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="ItW-1Z-ce5">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="Rubik-Light.ttf">
+            <string>Rubik-Light</string>
+        </array>
+        <array key="Rubik-Medium.ttf">
+            <string>Rubik-Medium</string>
+        </array>
+        <array key="Rubik-Regular.ttf">
+            <string>Rubik-Regular</string>
+        </array>
+    </customFonts>
+    <scenes>
+        <!--FoodPin-->
+        <scene sceneID="0Dd-xz-Cqa">
+            <objects>
+                <tableViewController id="BRc-6X-9Kw" customClass="RestaurantTableViewController" customModule="Dayof5" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="GA6-OW-dJt">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="datacell" rowHeight="82" id="VyT-Y2-fLX" customClass="RestaurantTableViewCell" customModule="Dayof5" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="24.5" width="414" height="82"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="VyT-Y2-fLX" id="ESD-gv-142">
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="82"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <stackView opaque="NO" contentMode="scaleToFill" alignment="top" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="M24-68-RZG">
+                                            <rect key="frame" x="26" y="11" width="368" height="60"/>
+                                            <subviews>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" restorationIdentifier="imageView" translatesAutoresizingMaskIntoConstraints="NO" id="hjJ-5q-iH3">
+                                                    <rect key="frame" x="0.0" y="0.0" width="60" height="60"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="60" id="XFh-dS-fz0"/>
+                                                        <constraint firstAttribute="width" constant="60" id="YqR-th-T8e"/>
+                                                    </constraints>
+                                                </imageView>
+                                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="1" translatesAutoresizingMaskIntoConstraints="NO" id="VX7-v7-rk1">
+                                                    <rect key="frame" x="75" y="0.0" width="256" height="48"/>
+                                                    <subviews>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RHy-Vg-vcb" userLabel="Name">
+                                                            <rect key="frame" x="0.0" y="0.0" width="256" height="17"/>
+                                                            <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Opi-Rd-Pjg" userLabel="Location">
+                                                            <rect key="frame" x="0.0" y="18" width="256" height="14.5"/>
+                                                            <fontDescription key="fontDescription" style="UICTFontTextStyleSubhead"/>
+                                                            <color key="textColor" systemColor="systemGrayColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QVu-jC-mnq" userLabel="Type">
+                                                            <rect key="frame" x="0.0" y="33.5" width="256" height="14.5"/>
+                                                            <fontDescription key="fontDescription" style="UICTFontTextStyleSubhead"/>
+                                                            <color key="textColor" systemColor="systemGrayColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                    </subviews>
+                                                </stackView>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="heart-tick" translatesAutoresizingMaskIntoConstraints="NO" id="kx0-FT-Z9R">
+                                                    <rect key="frame" x="346" y="0.0" width="22" height="21"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="21" id="dQK-Gp-I4w"/>
+                                                        <constraint firstAttribute="width" constant="22" id="pPW-4o-VqC"/>
+                                                    </constraints>
+                                                </imageView>
+                                            </subviews>
+                                        </stackView>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstAttribute="bottomMargin" secondItem="M24-68-RZG" secondAttribute="bottom" id="Izf-kw-Yzu"/>
+                                        <constraint firstAttribute="trailingMargin" secondItem="M24-68-RZG" secondAttribute="trailing" id="RFM-Fv-7dB"/>
+                                        <constraint firstItem="M24-68-RZG" firstAttribute="top" secondItem="ESD-gv-142" secondAttribute="topMargin" id="w7G-tp-9j7"/>
+                                        <constraint firstItem="M24-68-RZG" firstAttribute="leading" secondItem="ESD-gv-142" secondAttribute="leadingMargin" constant="6" id="yaQ-an-PSK"/>
+                                    </constraints>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="heartTick" destination="kx0-FT-Z9R" id="ZtU-G2-ta2"/>
+                                    <outlet property="locationLabel" destination="Opi-Rd-Pjg" id="csb-eG-WWv"/>
+                                    <outlet property="nameLabel" destination="RHy-Vg-vcb" id="RQ6-VR-Wpn"/>
+                                    <outlet property="thumbnailImageView" destination="hjJ-5q-iH3" id="foZ-g4-Nxj"/>
+                                    <outlet property="typeLabel" destination="QVu-jC-mnq" id="jgq-O6-j0E"/>
+                                    <segue destination="APu-Qb-OWc" kind="show" identifier="showRestaurantDetail" id="jht-hX-fq3"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="BRc-6X-9Kw" id="lwF-VT-CSz"/>
+                            <outlet property="delegate" destination="BRc-6X-9Kw" id="zRk-oS-rdC"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="FoodPin" id="TJC-A2-KMl"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Bvo-jh-aEw" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="647.82608695652175" y="-601.33928571428567"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="Vv3-5z-g8y">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="ItW-1Z-ce5" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" largeTitles="YES" id="PXQ-rq-0GY">
+                        <rect key="frame" x="0.0" y="44" width="414" height="96"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="BRc-6X-9Kw" kind="relationship" relationship="rootViewController" id="89I-gc-CUc"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Yec-8d-rOA" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-262.31884057971018" y="-601.33928571428567"/>
+        </scene>
+        <!--Restaurant Detail View Controller-->
+        <scene sceneID="RU4-xZ-3IA">
+            <objects>
+                <viewController id="APu-Qb-OWc" customClass="RestaurantDetailViewController" customModule="Dayof5" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="2Ga-3W-aOD">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <view key="tableHeaderView" clipsSubviews="YES" contentMode="scaleAspectFill" id="pKB-r1-dew" userLabel="Header View" customClass="RestaurantDetailHeaderView" customModule="Dayof5" customModuleProvider="target">
+                            <rect key="frame" x="0.0" y="0.0" width="414" height="350"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <subviews>
+                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="da5-tl-eIY" userLabel="Header Image View">
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="350"/>
+                                </imageView>
+                                <view alpha="0.20000000000000001" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="m38-SF-oHm" userLabel="Dim View">
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="350"/>
+                                    <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </view>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KHQ-aS-QNp" userLabel="Name Label">
+                                    <rect key="frame" x="14" y="271.5" width="196" height="41.5"/>
+                                    <fontDescription key="fontDescription" name="Rubik-Medium" family="Rubik" pointSize="35"/>
+                                    <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Type Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Z1L-Qi-DgI" userLabel="Type Label">
+                                    <rect key="frame" x="14" y="316" width="100" height="20"/>
+                                    <color key="backgroundColor" red="0.90588235294117647" green="0.29803921568627451" blue="0.23529411764705882" alpha="1" colorSpace="calibratedRGB"/>
+                                    <constraints>
+                                        <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="100" id="14Z-iv-1kJ"/>
+                                        <constraint firstAttribute="height" constant="20" id="3YN-dG-dH0"/>
+                                    </constraints>
+                                    <fontDescription key="fontDescription" name="Rubik-Regular" family="Rubik" pointSize="13"/>
+                                    <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="heart-tick" translatesAutoresizingMaskIntoConstraints="NO" id="MfP-t1-1d4" userLabel="Heart Image View">
+                                    <rect key="frame" x="122" y="318.5" width="15" height="15"/>
+                                    <constraints>
+                                        <constraint firstAttribute="width" constant="15" id="1Zz-3V-SQG"/>
+                                        <constraint firstAttribute="height" constant="15" id="vQj-G3-7Qm"/>
+                                    </constraints>
+                                </imageView>
+                            </subviews>
+                            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            <constraints>
+                                <constraint firstItem="Z1L-Qi-DgI" firstAttribute="leading" secondItem="pKB-r1-dew" secondAttribute="leading" constant="14" id="1V6-2S-3Ek"/>
+                                <constraint firstItem="m38-SF-oHm" firstAttribute="top" secondItem="pKB-r1-dew" secondAttribute="top" id="1gC-lu-TYV"/>
+                                <constraint firstItem="da5-tl-eIY" firstAttribute="leading" secondItem="pKB-r1-dew" secondAttribute="leading" id="CcU-n7-eiR"/>
+                                <constraint firstAttribute="bottom" secondItem="m38-SF-oHm" secondAttribute="bottom" id="E9n-B4-c31"/>
+                                <constraint firstItem="KHQ-aS-QNp" firstAttribute="leading" secondItem="Z1L-Qi-DgI" secondAttribute="leading" id="NG8-Ug-LcO"/>
+                                <constraint firstAttribute="bottom" secondItem="Z1L-Qi-DgI" secondAttribute="bottom" constant="14" id="QBj-ft-5P9"/>
+                                <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="KHQ-aS-QNp" secondAttribute="trailing" constant="50" id="Qec-TY-6nq"/>
+                                <constraint firstAttribute="trailing" secondItem="m38-SF-oHm" secondAttribute="trailing" id="R4K-cv-WL6"/>
+                                <constraint firstItem="Z1L-Qi-DgI" firstAttribute="top" secondItem="KHQ-aS-QNp" secondAttribute="bottom" constant="3" id="Vg7-jN-nGM"/>
+                                <constraint firstAttribute="trailing" secondItem="da5-tl-eIY" secondAttribute="trailing" id="ZsB-4u-DGo"/>
+                                <constraint firstItem="da5-tl-eIY" firstAttribute="top" secondItem="pKB-r1-dew" secondAttribute="top" id="aou-fE-xPw"/>
+                                <constraint firstItem="MfP-t1-1d4" firstAttribute="centerY" secondItem="Z1L-Qi-DgI" secondAttribute="centerY" id="b6j-Yx-Cbs"/>
+                                <constraint firstItem="m38-SF-oHm" firstAttribute="leading" secondItem="pKB-r1-dew" secondAttribute="leading" id="brq-sa-J1f"/>
+                                <constraint firstAttribute="bottom" secondItem="da5-tl-eIY" secondAttribute="bottom" id="cwt-u0-7ts"/>
+                                <constraint firstItem="MfP-t1-1d4" firstAttribute="leading" secondItem="Z1L-Qi-DgI" secondAttribute="trailing" constant="8" id="sCW-S0-xJC"/>
+                            </constraints>
+                            <connections>
+                                <outlet property="headerImageView" destination="da5-tl-eIY" id="ZwM-rA-r8d"/>
+                                <outlet property="heartImageView" destination="MfP-t1-1d4" id="9Ai-9B-DdM"/>
+                                <outlet property="nameLabel" destination="KHQ-aS-QNp" id="Yh0-Xv-FBA"/>
+                                <outlet property="typeLabel" destination="Z1L-Qi-DgI" id="6HX-rw-KGt"/>
+                            </connections>
+                        </view>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="RestaurantDetailIconTextCell" id="RrO-8V-h5H" customClass="RestaurantDetailIconTextCell" customModule="Dayof5" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="374.5" width="414" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="RrO-8V-h5H" id="3hE-bg-IhH">
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="t6v-Tp-L0v">
+                                            <rect key="frame" x="23" y="11" width="368" height="20"/>
+                                            <subviews>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="3QI-T4-q9a">
+                                                    <rect key="frame" x="0.0" y="0.0" width="20" height="20"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="20" id="K39-A8-vjZ"/>
+                                                        <constraint firstAttribute="width" constant="20" id="LuL-gh-mf5"/>
+                                                    </constraints>
+                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Twj-gr-8wG">
+                                                    <rect key="frame" x="30" y="1.5" width="338" height="17"/>
+                                                    <fontDescription key="fontDescription" name="Rubik-Regular" family="Rubik" pointSize="14"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </stackView>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstAttribute="trailingMargin" secondItem="t6v-Tp-L0v" secondAttribute="trailing" constant="3" id="0PR-aX-dS8"/>
+                                        <constraint firstAttribute="bottomMargin" secondItem="t6v-Tp-L0v" secondAttribute="bottom" constant="2" id="UIx-D4-4Vn"/>
+                                        <constraint firstItem="t6v-Tp-L0v" firstAttribute="top" secondItem="3hE-bg-IhH" secondAttribute="topMargin" id="kTS-hh-oEh"/>
+                                        <constraint firstItem="t6v-Tp-L0v" firstAttribute="leading" secondItem="3hE-bg-IhH" secondAttribute="leadingMargin" constant="3" id="rjD-BM-p1A"/>
+                                    </constraints>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="iconImageView" destination="3QI-T4-q9a" id="hQf-Na-Vt9"/>
+                                    <outlet property="shortTextLabel" destination="Twj-gr-8wG" id="2SW-ko-q9S"/>
+                                </connections>
+                            </tableViewCell>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="RestaurantDetailTextCell" id="mnq-sp-M3M" customClass="RestaurantDetailTextCell" customModule="Dayof5" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="418.5" width="414" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="mnq-sp-M3M" id="bsC-aa-C3j">
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="x8Q-2H-joq">
+                                            <rect key="frame" x="23" y="11" width="368" height="18"/>
+                                            <fontDescription key="fontDescription" name="Rubik-Light" family="Rubik" pointSize="15"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstAttribute="trailingMargin" secondItem="x8Q-2H-joq" secondAttribute="trailing" constant="3" id="H5X-tg-von"/>
+                                        <constraint firstItem="x8Q-2H-joq" firstAttribute="top" secondItem="bsC-aa-C3j" secondAttribute="topMargin" id="Jzh-GK-nrR"/>
+                                        <constraint firstAttribute="bottomMargin" secondItem="x8Q-2H-joq" secondAttribute="bottom" constant="4" id="jai-qs-4Wk"/>
+                                        <constraint firstItem="x8Q-2H-joq" firstAttribute="leading" secondItem="bsC-aa-C3j" secondAttribute="leadingMargin" constant="3" id="sos-Ql-Rog"/>
+                                    </constraints>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="descriptionLabel" destination="x8Q-2H-joq" id="H2t-nA-JfJ"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                    </tableView>
+                    <navigationItem key="navigationItem" id="RCE-Kw-isf"/>
+                    <connections>
+                        <outlet property="headerView" destination="pKB-r1-dew" id="LNz-TH-5hW"/>
+                        <outlet property="tableView" destination="2Ga-3W-aOD" id="WNB-QH-AJ2"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="xkQ-gK-CBH" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1535" y="-601"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="heart-tick" width="22" height="21"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemGrayColor">
+            <color red="0.55686274509803924" green="0.55686274509803924" blue="0.57647058823529407" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+    </resources>
+</document>
