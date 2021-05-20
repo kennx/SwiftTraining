@@ -15,7 +15,7 @@ class RestaurantDetailViewController: UIViewController, UITableViewDelegate, UIT
   }
   
   func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-    return 3
+    return 5
   }
   
   func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -40,6 +40,15 @@ class RestaurantDetailViewController: UIViewController, UITableViewDelegate, UIT
       cell.selectionStyle = .none
       
       return cell
+    case 3:
+      let cell = tableView.dequeueReusableCell(withIdentifier: String(describing: RestaurantDetailSeparatorCell.self), for: indexPath) as! RestaurantDetailSeparatorCell
+      cell.titleLabel.text = "HOW TO GET HERE"
+      cell.selectionStyle = .none
+      return cell
+    case 4:
+      let cell = tableView.dequeueReusableCell(withIdentifier: String(describing: RestaurantDetailMapCell.self), for: indexPath) as! RestaurantDetailMapCell
+      cell.selectionStyle = .none
+      return cell
     default:
       fatalError("Failed to instantiate the table view cell for detail view controller")
     }
@@ -61,8 +70,19 @@ class RestaurantDetailViewController: UIViewController, UITableViewDelegate, UIT
     headerView.typeLabel.text = restaurant.type
     headerView.headerImageView.image = UIImage(named: restaurant.image)
     headerView.heartImageView.isHidden = (restaurant.isVisited) ? false : true
+    navigationController?.navigationBar.tintColor = .white
+    tableView.contentInsetAdjustmentBehavior = .never
   }
   
+  override func viewWillAppear(_ animated: Bool) {
+    super.viewWillAppear(animated)
+    navigationController?.hidesBarsOnSwipe = false
+    navigationController?.setNavigationBarHidden(false, animated: animated)
+  }
+  
+  override var preferredStatusBarStyle: UIStatusBarStyle {
+    return .lightContent
+  }
   
   
 }
