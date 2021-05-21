@@ -33,6 +33,8 @@
 		38AD02412652076D007130DE /* RestaurantTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38AD02402652076D007130DE /* RestaurantTableViewController.swift */; };
 		38AD024326520FE6007130DE /* RestaurantTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38AD024226520FE6007130DE /* RestaurantTableViewCell.swift */; };
 		38B926272653A516005BB967 /* RestaurantDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38B926262653A516005BB967 /* RestaurantDetailViewController.swift */; };
+		38C900C526574300005F4A6B /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38C900C426574300005F4A6B /* MapViewController.swift */; };
+		38C900C72657628A005F4A6B /* ReviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38C900C62657628A005F4A6B /* ReviewViewController.swift */; };
 		38D143CC2655FFC60063DDCA /* UIColor+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38D143CB2655FFC60063DDCA /* UIColor+Ext.swift */; };
 		38D143CE265605840063DDCA /* UINavigationController+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38D143CD265605840063DDCA /* UINavigationController+Ext.swift */; };
 		38D143D1265643E20063DDCA /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 38D143D0265643E20063DDCA /* MapKit.framework */; };
@@ -69,6 +71,8 @@
 		38AD02402652076D007130DE /* RestaurantTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantTableViewController.swift; sourceTree = "<group>"; };
 		38AD024226520FE6007130DE /* RestaurantTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantTableViewCell.swift; sourceTree = "<group>"; };
 		38B926262653A516005BB967 /* RestaurantDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantDetailViewController.swift; sourceTree = "<group>"; };
+		38C900C426574300005F4A6B /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
+		38C900C62657628A005F4A6B /* ReviewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewViewController.swift; sourceTree = "<group>"; };
 		38D143CB2655FFC60063DDCA /* UIColor+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Ext.swift"; sourceTree = "<group>"; };
 		38D143CD265605840063DDCA /* UINavigationController+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UINavigationController+Ext.swift"; sourceTree = "<group>"; };
 		38D143D0265643E20063DDCA /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
@@ -110,6 +114,8 @@
 			children = (
 				38AD02402652076D007130DE /* RestaurantTableViewController.swift */,
 				38B926262653A516005BB967 /* RestaurantDetailViewController.swift */,
+				38C900C426574300005F4A6B /* MapViewController.swift */,
+				38C900C62657628A005F4A6B /* ReviewViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -293,6 +299,7 @@
 			files = (
 				38D143CE265605840063DDCA /* UINavigationController+Ext.swift in Sources */,
 				38AD024326520FE6007130DE /* RestaurantTableViewCell.swift in Sources */,
+				38C900C72657628A005F4A6B /* ReviewViewController.swift in Sources */,
 				38A012F42654F388005B70EB /* RestaurantDetailTextCell.swift in Sources */,
 				38AD022726520545007130DE /* AppDelegate.swift in Sources */,
 				38A012CC2654B962005B70EB /* Restaurant.swift in Sources */,
@@ -304,6 +311,7 @@
 				38D143CC2655FFC60063DDCA /* UIColor+Ext.swift in Sources */,
 				38AD02412652076D007130DE /* RestaurantTableViewController.swift in Sources */,
 				38A012F22654F20D005B70EB /* RestaurantDetailIconTextCell.swift in Sources */,
+				38C900C526574300005F4A6B /* MapViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

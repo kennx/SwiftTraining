@@ -10,6 +10,28 @@ import UIKit
 class RestaurantDetailViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
   
   
+  @IBAction func close(segue: UIStoryboardSegue) {
+    dismiss(animated: true, completion: nil)
+  }
+  
+  @IBAction func rateRestaurant(segue: UIStoryboardSegue) {
+    dismiss(animated: true) {
+      if let rating = segue.identifier {
+        self.restaurant.rating = rating
+        self.headerView.ratingImageView.image = UIImage(named: rating)
+        
+        let scaleTransform = CGAffineTransform.init(scaleX: 0.1, y: 0.1)
+        self.headerView.ratingImageView.transform = scaleTransform
+        self.headerView.ratingImageView.alpha = 0.0
+        UIView.animate(withDuration: 0.4, delay: 0, usingSpringWithDamping: 0.3, initialSpringVelocity: 0.7, options: []) {
+          self.headerView.ratingImageView.transform = .identity
+          self.headerView.ratingImageView.alpha = 1
+        }
+      }
+    }
+  }
+  
+  
   func numberOfSections(in tableView: UITableView) -> Int {
     return 1
   }
@@ -48,6 +70,7 @@ class RestaurantDetailViewController: UIViewController, UITableViewDelegate, UIT
     case 4:
       let cell = tableView.dequeueReusableCell(withIdentifier: String(describing: RestaurantDetailMapCell.self), for: indexPath) as! RestaurantDetailMapCell
       cell.selectionStyle = .none
+      cell.configure(location: restaurant.location)
       return cell
     default:
       fatalError("Failed to instantiate the table view cell for detail view controller")
@@ -83,6 +106,19 @@ class RestaurantDetailViewController: UIViewController, UITableViewDelegate, UIT
   override var preferredStatusBarStyle: UIStatusBarStyle {
     return .lightContent
   }
+  
+  override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+    if segue.identifier == "showMap" {
+      let destinationController = segue.destination as! MapViewController
+      destinationController.restaurant = restaurant
+    } else if segue.identifier == "showReview" {
+      let destinationController = segue.destination as! ReviewViewController
+      destinationController.restaurant = restaurant
+    }
+  }
+  
+  
+  
   
   
 }
