@@ -7,7 +7,10 @@
 
 import UIKit
 
-class NewRestaurantController: UITableViewController, UITextFieldDelegate {
+class NewRestaurantController: UITableViewController, UITextFieldDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+  
+  
+  
   
   @IBOutlet var nameTextField: RoundedTextField! {
     didSet {
@@ -46,10 +49,19 @@ class NewRestaurantController: UITableViewController, UITextFieldDelegate {
     }
   }
   
+  
+  @IBOutlet var photoImageView: UIImageView!
+
+  
+  
   override func viewDidLoad() {
     super.viewDidLoad()
     
-    
+    navigationController?.navigationBar.tintColor = .white
+    navigationController?.navigationBar.shadowImage = UIImage()
+    if let customFont = UIFont(name: "Rubik-Medium", size: 35.0) {
+      navigationController?.navigationBar.largeTitleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor(red: 231, green: 76, blue: 60), NSAttributedString.Key.font: customFont]
+    }
   }
   
   func textFieldShouldReturn(_ textField: UITextField) -> Bool {
@@ -60,71 +72,99 @@ class NewRestaurantController: UITableViewController, UITextFieldDelegate {
     return true
   }
   
-  // MARK: - Table view data source
+  override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+    if indexPath.row == 0 {
+      let photoSourceRequestController = UIAlertController(title: "", message: "Choose your photo source", preferredStyle: .actionSheet)
+      
+      let cameraAction = UIAlertAction(title: "Camera", style: .default) { action in
+        if UIImagePickerController.isSourceTypeAvailable(.camera) {
+          let imagePicker = UIImagePickerController()
+          imagePicker.delegate = self
+          imagePicker.allowsEditing = false
+          imagePicker.sourceType = .camera
+          self.present(imagePicker, animated: true, completion: nil)
+        }
+      }
+      
+      let photoLibraryAction = UIAlertAction(title: "Photo library", style: .default) { action in
+        if UIImagePickerController.isSourceTypeAvailable(.photoLibrary) {
+          let imagePicker = UIImagePickerController()
+          imagePicker.delegate = self
+          imagePicker.allowsEditing = false
+          imagePicker.sourceType = .photoLibrary
+          self.present(imagePicker, animated: true, completion: nil)
+        }
+      }
+      
+      photoSourceRequestController.addAction(cameraAction)
+      photoSourceRequestController.addAction(photoLibraryAction)
+      
+      if let popoverController = photoSourceRequestController.popoverPresentationController {
+        if let cell = tableView.cellForRow(at: indexPath) {
+          popoverController.sourceView = cell
+          popoverController.sourceRect = cell.bounds
+        }
+      }
+      
+      present(photoSourceRequestController, animated: true, completion: nil)
+      
+    }
+  }
   
-//  override func numberOfSections(in tableView: UITableView) -> Int {
-//    // #warning Incomplete implementation, return the number of sections
-//    return 0
-//  }
-//
-//  override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-//    // #warning Incomplete implementation, return the number of rows
-//    return 0
-//  }
   
-  /*
-   override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-   let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
-   
-   // Configure the cell...
-   
-   return cell
-   }
-   */
+  func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+    if let selectedImage = info[UIImagePickerController.InfoKey.originalImage] as? UIImage {
+      photoImageView.image = selectedImage
+      photoImageView.contentMode = .scaleAspectFill
+      photoImageView.clipsToBounds = true
+    }
+    
+    let leadingConstraint = NSLayoutConstraint(item: photoImageView as Any, attribute: .leading, relatedBy: .equal, toItem: photoImageView.superview, attribute: .leading, multiplier: 1, constant: 0)
+    leadingConstraint.isActive = true
+    
+    let trailingConstraint = NSLayoutConstraint(item: photoImageView as Any, attribute: .trailing, relatedBy: .equal, toItem: photoImageView.superview, attribute: .trailing, multiplier: 1, constant: 0)
+    trailingConstraint.isActive = true
+    
+    let topConstraint = NSLayoutConstraint(item: photoImageView as Any, attribute: .top, relatedBy: .equal, toItem: photoImageView.superview, attribute: .top, multiplier: 1, constant: 0)
+    topConstraint.isActive = true
+    
+    let bottomConstraint = NSLayoutConstraint(item: photoImageView as Any, attribute: .bottom, relatedBy: .equal, toItem: photoImageView.superview, attribute: .bottom, multiplier: 1, constant: 0)
+    bottomConstraint.isActive = true
+    
+    dismiss(animated: true, completion: nil)
+  }
   
-  /*
-   // Override to support conditional editing of the table view.
-   override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-   // Return false if you do not want the specified item to be editable.
-   return true
-   }
-   */
+  private func showAlertMessage(content: String) {
+    let alertController = UIAlertController(title: "warning", message: "\(content) cannt is empty!", preferredStyle: .alert)
+    let alertAction = UIAlertAction(title: "OK", style: .default, handler: nil)
+    alertController.addAction(alertAction)
+    present(alertController, animated: true, completion: nil)
+  }
   
-  /*
-   // Override to support editing the table view.
-   override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-   if editingStyle == .delete {
-   // Delete the row from the data source
-   tableView.deleteRows(at: [indexPath], with: .fade)
-   } else if editingStyle == .insert {
-   // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-   }
-   }
-   */
+  @IBAction func saveButtonTapped(segue: AnyObject) {
+    if let nameText = nameTextField.text,
+       let addressText = addressTextField.text,
+       let phoneText = phoneTextField.text,
+       let typeText = typeTextField.text,
+       let descText = descriptionTextView.text {
+      if nameText.isEmpty {
+        self.showAlertMessage(content: "Name")
+      } else if typeText.isEmpty {
+        self.showAlertMessage(content: "Type")
+      } else if addressText.isEmpty {
+        self.showAlertMessage(content: "Address")
+      } else if phoneText.isEmpty {
+        self.showAlertMessage(content: "Phone")
+      } else if descText.isEmpty {
+        self.showAlertMessage(content: "Description")
+      } else {
+        print("name: \(nameText)\naddress: \(addressText)\nphone: \(phoneText)\ntype: \(typeText)\ndescription: \(descText)")
+        dismiss(animated: true, completion: nil)
+      }
+    }
+    
+  }
   
-  /*
-   // Override to support rearranging the table view.
-   override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
-   
-   }
-   */
   
-  /*
-   // Override to support conditional rearranging of the table view.
-   override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
-   // Return false if you do not want the item to be re-orderable.
-   return true
-   }
-   */
-  
-  /*
-   // MARK: - Navigation
-   
-   // In a storyboard-based application, you will often want to do a little preparation before navigation
-   override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-   // Get the new view controller using segue.destination.
-   // Pass the selected object to the new view controller.
-   }
-   */
   
 }

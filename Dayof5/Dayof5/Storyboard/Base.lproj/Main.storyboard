@@ -115,7 +115,7 @@
         <scene sceneID="4ms-l8-Hqm">
             <objects>
                 <tableViewController id="4hH-RJ-QJF" customClass="NewRestaurantController" customModule="Dayof5" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="4eI-Kj-kTU">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="4eI-Kj-kTU">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -130,17 +130,15 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="9TS-54-xLi">
-                                                    <rect key="frame" x="195" y="91" width="24" height="18"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="414" height="200"/>
                                                     <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="height" constant="18" id="Yo4-Dh-fRH"/>
-                                                        <constraint firstAttribute="width" constant="24" id="p8x-by-UnO"/>
-                                                    </constraints>
                                                 </imageView>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="9TS-54-xLi" firstAttribute="centerX" secondItem="bpY-zY-EgX" secondAttribute="centerX" id="O3T-Mj-vL9"/>
-                                                <constraint firstItem="9TS-54-xLi" firstAttribute="centerY" secondItem="bpY-zY-EgX" secondAttribute="centerY" id="uAA-6i-jG8"/>
+                                                <constraint firstItem="9TS-54-xLi" firstAttribute="top" secondItem="bpY-zY-EgX" secondAttribute="top" id="98H-yu-r7f"/>
+                                                <constraint firstAttribute="trailing" secondItem="9TS-54-xLi" secondAttribute="trailing" id="Gkw-tp-873"/>
+                                                <constraint firstItem="9TS-54-xLi" firstAttribute="leading" secondItem="bpY-zY-EgX" secondAttribute="leading" id="L85-5k-pFg"/>
+                                                <constraint firstAttribute="bottom" secondItem="9TS-54-xLi" secondAttribute="bottom" id="inh-S4-CgO"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -321,9 +319,15 @@
                     </tableView>
                     <navigationItem key="navigationItem" title="New Restaurant" id="ITs-sq-jSy">
                         <barButtonItem key="leftBarButtonItem" image="xmark" catalog="system" id="6di-4I-Ue2">
-                            <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <color key="tintColor" systemColor="labelColor"/>
                             <connections>
                                 <segue destination="AI0-6X-KM2" kind="unwind" unwindAction="unwindToHomeWithSegue:" id="t4u-V2-seR"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" image="arrow.down.doc" catalog="system" id="P99-R9-9hX">
+                            <color key="tintColor" systemColor="labelColor"/>
+                            <connections>
+                                <action selector="saveButtonTappedWithSegue:" destination="4hH-RJ-QJF" id="0HB-zs-Zgn"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -332,6 +336,7 @@
                         <outlet property="descriptionTextView" destination="8jA-jp-5Q3" id="88d-sd-BOP"/>
                         <outlet property="nameTextField" destination="exc-dq-csP" id="Xfy-zM-llo"/>
                         <outlet property="phoneTextField" destination="eDT-oM-6Ue" id="F36-Sp-BeZ"/>
+                        <outlet property="photoImageView" destination="9TS-54-xLi" id="FBn-lk-n4E"/>
                         <outlet property="typeTextField" destination="a5I-be-ygj" id="WPo-ej-PyG"/>
                     </connections>
                 </tableViewController>
@@ -751,6 +756,7 @@
     </scenes>
     <resources>
         <image name="angry" width="78" height="103"/>
+        <image name="arrow.down.doc" catalog="system" width="115" height="128"/>
         <image name="cool" width="78" height="83"/>
         <image name="happy" width="78" height="86"/>
         <image name="heart-tick" width="22" height="21"/>
