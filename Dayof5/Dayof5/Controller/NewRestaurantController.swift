@@ -173,9 +173,9 @@ class NewRestaurantController: UITableViewController, UITextFieldDelegate, UIIma
             restaurant.image = restaurantImage.pngData()
           }
           
-          dismiss(animated: true, completion: nil)
+          appDelegate.saveContext()
         }
-        
+        dismiss(animated: true, completion: nil)
       }
     }
     

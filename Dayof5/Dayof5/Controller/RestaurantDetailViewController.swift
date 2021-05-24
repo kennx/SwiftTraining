@@ -14,24 +14,6 @@ class RestaurantDetailViewController: UIViewController, UITableViewDelegate, UIT
     dismiss(animated: true, completion: nil)
   }
   
-  @IBAction func rateRestaurant(segue: UIStoryboardSegue) {
-    dismiss(animated: true) {
-      if let rating = segue.identifier {
-        self.restaurant.rating = rating
-        self.headerView.ratingImageView.image = UIImage(named: rating)
-        
-        let scaleTransform = CGAffineTransform.init(scaleX: 0.1, y: 0.1)
-        self.headerView.ratingImageView.transform = scaleTransform
-        self.headerView.ratingImageView.alpha = 0.0
-        UIView.animate(withDuration: 0.4, delay: 0, usingSpringWithDamping: 0.3, initialSpringVelocity: 0.7, options: []) {
-          self.headerView.ratingImageView.transform = .identity
-          self.headerView.ratingImageView.alpha = 1
-        }
-      }
-    }
-  }
-  
-  
   func numberOfSections(in tableView: UITableView) -> Int {
     return 1
   }
@@ -47,7 +29,7 @@ class RestaurantDetailViewController: UIViewController, UITableViewDelegate, UIT
       cell.iconImageView.image = UIImage(systemName: "phone")?.withTintColor(.black, renderingMode: .alwaysOriginal)
       cell.shortTextLabel.text = restaurant.phone
       cell.selectionStyle = .none
-
+      
       return cell
     case 1:
       let cell = tableView.dequeueReusableCell(withIdentifier: String(describing: RestaurantDetailIconTextCell.self), for: indexPath) as! RestaurantDetailIconTextCell
@@ -58,7 +40,7 @@ class RestaurantDetailViewController: UIViewController, UITableViewDelegate, UIT
       return cell
     case 2:
       let cell = tableView.dequeueReusableCell(withIdentifier: String(describing: RestaurantDetailTextCell.self), for: indexPath) as! RestaurantDetailTextCell
-      cell.descriptionLabel.text = restaurant.description
+      cell.descriptionLabel.text = restaurant.summary
       cell.selectionStyle = .none
       
       return cell
@@ -99,6 +81,10 @@ class RestaurantDetailViewController: UIViewController, UITableViewDelegate, UIT
     headerView.heartImageView.isHidden = (restaurant.isVisited) ? false : true
     navigationController?.navigationBar.tintColor = .white
     tableView.contentInsetAdjustmentBehavior = .never
+    
+    if let rating = restaurant.rating {
+      headerView.ratingImageView.image = UIImage(named: rating)
+    }
   }
   
   override func viewWillAppear(_ animated: Bool) {
@@ -122,5 +108,26 @@ class RestaurantDetailViewController: UIViewController, UITableViewDelegate, UIT
     }
   }
   
+  @IBAction func rateRestaurant(segue: UIStoryboardSegue) {
+    dismiss(animated: true, completion: {
+      if let rating = segue.identifier {
+        self.restaurant.rating = rating
+        self.headerView.ratingImageView.image = UIImage(named: rating)
+        
+        if let appDelegate = (UIApplication.shared.delegate as? AppDelegate) {
+          appDelegate.saveContext()
+        }
+        
+        let scaleTransform = CGAffineTransform.init(scaleX: 0.1, y: 0.1)
+        self.headerView.ratingImageView.transform = scaleTransform
+        self.headerView.ratingImageView.alpha = 0
+        
+        UIView.animate(withDuration: 0.4, delay: 0, usingSpringWithDamping: 0.3, initialSpringVelocity: 0.7, options: [], animations: {
+          self.headerView.ratingImageView.transform = .identity
+          self.headerView.ratingImageView.alpha = 1
+        }, completion: nil)
+      }
+    })
+  }
   
 }
