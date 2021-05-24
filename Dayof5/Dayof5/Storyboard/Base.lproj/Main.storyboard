@@ -3,6 +3,7 @@
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
+        <capability name="Image references" minToolsVersion="12.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -106,8 +107,27 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="emptyRestaurantView" destination="HJf-bG-MHu" id="CYi-co-Oop"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Bvo-jh-aEw" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <view contentMode="scaleToFill" id="HJf-bG-MHu">
+                    <rect key="frame" x="0.0" y="0.0" width="414" height="600"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <subviews>
+                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="empty" translatesAutoresizingMaskIntoConstraints="NO" id="NFq-XT-qzP">
+                            <rect key="frame" x="28" y="144" width="358" height="372"/>
+                        </imageView>
+                    </subviews>
+                    <viewLayoutGuide key="safeArea" id="GVI-4e-VA3"/>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    <constraints>
+                        <constraint firstItem="NFq-XT-qzP" firstAttribute="leading" secondItem="GVI-4e-VA3" secondAttribute="leading" constant="28" id="Xle-5b-XYj"/>
+                        <constraint firstItem="GVI-4e-VA3" firstAttribute="trailing" secondItem="NFq-XT-qzP" secondAttribute="trailing" constant="28" id="aaO-Ne-C4F"/>
+                        <constraint firstItem="NFq-XT-qzP" firstAttribute="top" secondItem="GVI-4e-VA3" secondAttribute="top" constant="100" id="cgD-1a-tud"/>
+                    </constraints>
+                </view>
             </objects>
             <point key="canvasLocation" x="647.82608695652175" y="-601.33928571428567"/>
         </scene>
@@ -115,7 +135,7 @@
         <scene sceneID="4ms-l8-Hqm">
             <objects>
                 <tableViewController id="4hH-RJ-QJF" customClass="NewRestaurantController" customModule="Dayof5" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="4eI-Kj-kTU">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="4eI-Kj-kTU">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -129,16 +149,14 @@
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="200"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="9TS-54-xLi">
-                                                    <rect key="frame" x="0.0" y="0.0" width="414" height="200"/>
-                                                    <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="dP4-QV-rft">
+                                                    <rect key="frame" x="195" y="91" width="24" height="17.5"/>
+                                                    <imageReference key="image" image="photo" catalog="system" renderingMode="original"/>
                                                 </imageView>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="9TS-54-xLi" firstAttribute="top" secondItem="bpY-zY-EgX" secondAttribute="top" id="98H-yu-r7f"/>
-                                                <constraint firstAttribute="trailing" secondItem="9TS-54-xLi" secondAttribute="trailing" id="Gkw-tp-873"/>
-                                                <constraint firstItem="9TS-54-xLi" firstAttribute="leading" secondItem="bpY-zY-EgX" secondAttribute="leading" id="L85-5k-pFg"/>
-                                                <constraint firstAttribute="bottom" secondItem="9TS-54-xLi" secondAttribute="bottom" id="inh-S4-CgO"/>
+                                                <constraint firstItem="dP4-QV-rft" firstAttribute="centerX" secondItem="bpY-zY-EgX" secondAttribute="centerX" id="IKd-JN-M07"/>
+                                                <constraint firstItem="dP4-QV-rft" firstAttribute="centerY" secondItem="bpY-zY-EgX" secondAttribute="centerY" id="cHS-UP-rs8"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -327,7 +345,7 @@
                         <barButtonItem key="rightBarButtonItem" image="arrow.down.doc" catalog="system" id="P99-R9-9hX">
                             <color key="tintColor" systemColor="labelColor"/>
                             <connections>
-                                <action selector="saveButtonTappedWithSegue:" destination="4hH-RJ-QJF" id="0HB-zs-Zgn"/>
+                                <action selector="saveButtonTappedWithSegue:" destination="4hH-RJ-QJF" id="zal-OE-7RE"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -336,7 +354,7 @@
                         <outlet property="descriptionTextView" destination="8jA-jp-5Q3" id="88d-sd-BOP"/>
                         <outlet property="nameTextField" destination="exc-dq-csP" id="Xfy-zM-llo"/>
                         <outlet property="phoneTextField" destination="eDT-oM-6Ue" id="F36-Sp-BeZ"/>
-                        <outlet property="photoImageView" destination="9TS-54-xLi" id="FBn-lk-n4E"/>
+                        <outlet property="photoImageView" destination="dP4-QV-rft" id="jOr-fK-OcL"/>
                         <outlet property="typeTextField" destination="a5I-be-ygj" id="WPo-ej-PyG"/>
                     </connections>
                 </tableViewController>
@@ -758,9 +776,11 @@
         <image name="angry" width="78" height="103"/>
         <image name="arrow.down.doc" catalog="system" width="115" height="128"/>
         <image name="cool" width="78" height="83"/>
+        <image name="empty" width="310" height="372"/>
         <image name="happy" width="78" height="86"/>
         <image name="heart-tick" width="22" height="21"/>
         <image name="love" width="78" height="82"/>
+        <image name="photo" catalog="system" width="128" height="93"/>
         <image name="plus" catalog="system" width="128" height="113"/>
         <image name="sad" width="78" height="87"/>
         <image name="xmark" catalog="system" width="128" height="113"/>

@@ -6,11 +6,12 @@
 //
 
 import UIKit
+import CoreData
 
 class NewRestaurantController: UITableViewController, UITextFieldDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+
   
-  
-  
+  var restaurant: RestaurantMO!
   
   @IBOutlet var nameTextField: RoundedTextField! {
     didSet {
@@ -159,7 +160,22 @@ class NewRestaurantController: UITableViewController, UITextFieldDelegate, UIIma
         self.showAlertMessage(content: "Description")
       } else {
         print("name: \(nameText)\naddress: \(addressText)\nphone: \(phoneText)\ntype: \(typeText)\ndescription: \(descText)")
-        dismiss(animated: true, completion: nil)
+        if let appDelegate = (UIApplication.shared.delegate as? AppDelegate) {
+          restaurant = RestaurantMO(context: appDelegate.persistentContainer.viewContext)
+          restaurant.name = nameText
+          restaurant.type = typeText
+          restaurant.location = addressText
+          restaurant.phone = phoneText
+          restaurant.summary = descText
+          restaurant.isVisited = false
+          
+          if let restaurantImage = photoImageView.image {
+            restaurant.image = restaurantImage.pngData()
+          }
+          
+          dismiss(animated: true, completion: nil)
+        }
+        
       }
     }
     

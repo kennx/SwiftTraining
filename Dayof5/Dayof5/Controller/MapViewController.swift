@@ -12,19 +12,18 @@ class MapViewController: UIViewController, MKMapViewDelegate {
   
   @IBOutlet var mapView: MKMapView!
   
-  var restaurant = Restaurant()
+  var restaurant: RestaurantMO!
   
   override func viewDidLoad() {
     super.viewDidLoad()
     
     mapView.delegate = self
-    
     mapView.showsCompass = true
     mapView.showsTraffic = true
     mapView.showsScale = true
     
     let geoCoder = CLGeocoder()
-    geoCoder.geocodeAddressString(restaurant.location) { placemarks, error in
+    geoCoder.geocodeAddressString(restaurant.location ?? "") { placemarks, error in
       if let error = error {
         print(error.localizedDescription)
         return

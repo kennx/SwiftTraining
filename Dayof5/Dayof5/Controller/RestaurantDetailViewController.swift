@@ -70,7 +70,9 @@ class RestaurantDetailViewController: UIViewController, UITableViewDelegate, UIT
     case 4:
       let cell = tableView.dequeueReusableCell(withIdentifier: String(describing: RestaurantDetailMapCell.self), for: indexPath) as! RestaurantDetailMapCell
       cell.selectionStyle = .none
-      cell.configure(location: restaurant.location)
+      if let restaurantLocation = restaurant.location {
+        cell.configure(location: restaurantLocation)
+      }
       return cell
     default:
       fatalError("Failed to instantiate the table view cell for detail view controller")
@@ -81,7 +83,7 @@ class RestaurantDetailViewController: UIViewController, UITableViewDelegate, UIT
   @IBOutlet var tableView: UITableView!
   @IBOutlet var headerView: RestaurantDetailHeaderView!
   
-  var restaurant: Restaurant = Restaurant()
+  var restaurant: RestaurantMO!
   
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -91,7 +93,9 @@ class RestaurantDetailViewController: UIViewController, UITableViewDelegate, UIT
     navigationItem.largeTitleDisplayMode = .never
     headerView.nameLabel.text = restaurant.name
     headerView.typeLabel.text = restaurant.type
-    headerView.headerImageView.image = UIImage(named: restaurant.image)
+    if let restaurantImage = restaurant.image {
+      headerView.headerImageView.image = UIImage(data: restaurantImage as Data)
+    }
     headerView.heartImageView.isHidden = (restaurant.isVisited) ? false : true
     navigationController?.navigationBar.tintColor = .white
     tableView.contentInsetAdjustmentBehavior = .never
@@ -107,6 +111,7 @@ class RestaurantDetailViewController: UIViewController, UITableViewDelegate, UIT
     return .lightContent
   }
   
+  
   override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
     if segue.identifier == "showMap" {
       let destinationController = segue.destination as! MapViewController
@@ -116,9 +121,6 @@ class RestaurantDetailViewController: UIViewController, UITableViewDelegate, UIT
       destinationController.restaurant = restaurant
     }
   }
-  
-  
-  
   
   
 }
