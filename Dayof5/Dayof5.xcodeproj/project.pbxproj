@@ -36,6 +36,10 @@
 		38AD02412652076D007130DE /* RestaurantTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38AD02402652076D007130DE /* RestaurantTableViewController.swift */; };
 		38AD024326520FE6007130DE /* RestaurantTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38AD024226520FE6007130DE /* RestaurantTableViewCell.swift */; };
 		38B926272653A516005BB967 /* RestaurantDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38B926262653A516005BB967 /* RestaurantDetailViewController.swift */; };
+		38B98EB7265DFE3500A71DB5 /* WalkthroughContentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38B98EB6265DFE3500A71DB5 /* WalkthroughContentViewController.swift */; };
+		38B98EB9265E1A0900A71DB5 /* Onboarding.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 38B98EB8265E1A0900A71DB5 /* Onboarding.storyboard */; };
+		38B98EBB265E20F600A71DB5 /* WalkthroughPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38B98EBA265E20F600A71DB5 /* WalkthroughPageViewController.swift */; };
+		38B98EBD265E2A3400A71DB5 /* WalkthroughViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38B98EBC265E2A3400A71DB5 /* WalkthroughViewController.swift */; };
 		38C900C526574300005F4A6B /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38C900C426574300005F4A6B /* MapViewController.swift */; };
 		38C900C72657628A005F4A6B /* ReviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38C900C62657628A005F4A6B /* ReviewViewController.swift */; };
 		38D143CC2655FFC60063DDCA /* UIColor+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38D143CB2655FFC60063DDCA /* UIColor+Ext.swift */; };
@@ -77,6 +81,10 @@
 		38AD02402652076D007130DE /* RestaurantTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantTableViewController.swift; sourceTree = "<group>"; };
 		38AD024226520FE6007130DE /* RestaurantTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantTableViewCell.swift; sourceTree = "<group>"; };
 		38B926262653A516005BB967 /* RestaurantDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantDetailViewController.swift; sourceTree = "<group>"; };
+		38B98EB6265DFE3500A71DB5 /* WalkthroughContentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalkthroughContentViewController.swift; sourceTree = "<group>"; };
+		38B98EB8265E1A0900A71DB5 /* Onboarding.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Onboarding.storyboard; sourceTree = "<group>"; };
+		38B98EBA265E20F600A71DB5 /* WalkthroughPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalkthroughPageViewController.swift; sourceTree = "<group>"; };
+		38B98EBC265E2A3400A71DB5 /* WalkthroughViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalkthroughViewController.swift; sourceTree = "<group>"; };
 		38C900C426574300005F4A6B /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		38C900C62657628A005F4A6B /* ReviewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewViewController.swift; sourceTree = "<group>"; };
 		38D143CB2655FFC60063DDCA /* UIColor+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Ext.swift"; sourceTree = "<group>"; };
@@ -103,6 +111,7 @@
 			children = (
 				38AD022C26520545007130DE /* Main.storyboard */,
 				38AD023126520547007130DE /* LaunchScreen.storyboard */,
+				38B98EB8265E1A0900A71DB5 /* Onboarding.storyboard */,
 			);
 			path = Storyboard;
 			sourceTree = "<group>";
@@ -123,6 +132,9 @@
 				38C900C426574300005F4A6B /* MapViewController.swift */,
 				38C900C62657628A005F4A6B /* ReviewViewController.swift */,
 				02D237942659270E0055ACCE /* NewRestaurantController.swift */,
+				38B98EB6265DFE3500A71DB5 /* WalkthroughContentViewController.swift */,
+				38B98EBA265E20F600A71DB5 /* WalkthroughPageViewController.swift */,
+				38B98EBC265E2A3400A71DB5 /* WalkthroughViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -294,6 +306,7 @@
 				38A012E72654C47B005B70EB /* Rubik-Light.ttf in Resources */,
 				38A012EB2654C47B005B70EB /* Rubik-Black.ttf in Resources */,
 				38A012E12654C47B005B70EB /* Rubik-ExtraBold.ttf in Resources */,
+				38B98EB9265E1A0900A71DB5 /* Onboarding.storyboard in Resources */,
 				38A012EA2654C47B005B70EB /* Rubik-BoldItalic.ttf in Resources */,
 				38AD022E26520545007130DE /* Main.storyboard in Resources */,
 			);
@@ -308,6 +321,7 @@
 			files = (
 				38D143CE265605840063DDCA /* UINavigationController+Ext.swift in Sources */,
 				38AD024326520FE6007130DE /* RestaurantTableViewCell.swift in Sources */,
+				38B98EBB265E20F600A71DB5 /* WalkthroughPageViewController.swift in Sources */,
 				02D237952659270E0055ACCE /* NewRestaurantController.swift in Sources */,
 				38C900C72657628A005F4A6B /* ReviewViewController.swift in Sources */,
 				38A012F42654F388005B70EB /* RestaurantDetailTextCell.swift in Sources */,
@@ -318,7 +332,9 @@
 				38D143D32656486A0063DDCA /* RestaurantDetailSeparatorCell.swift in Sources */,
 				38D143D5265649950063DDCA /* RestaurantDetailMapCell.swift in Sources */,
 				38AD022926520545007130DE /* SceneDelegate.swift in Sources */,
+				38B98EB7265DFE3500A71DB5 /* WalkthroughContentViewController.swift in Sources */,
 				02D23791265907EB0055ACCE /* RoundedTextField.swift in Sources */,
+				38B98EBD265E2A3400A71DB5 /* WalkthroughViewController.swift in Sources */,
 				38D143CC2655FFC60063DDCA /* UIColor+Ext.swift in Sources */,
 				38AD02412652076D007130DE /* RestaurantTableViewController.swift in Sources */,
 				38A012F22654F20D005B70EB /* RestaurantDetailIconTextCell.swift in Sources */,
