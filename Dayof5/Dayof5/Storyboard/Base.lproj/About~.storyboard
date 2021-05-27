@@ -754,6 +754,52 @@
             </objects>
             <point key="canvasLocation" x="3347.826086956522" y="-601.33928571428567"/>
         </scene>
+        <!--Discover-->
+        <scene sceneID="BCF-lV-QMO">
+            <objects>
+                <tableViewController id="tbY-Dq-xrL" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="PYR-V6-Q6I">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="GCr-By-3hI">
+                                <rect key="frame" x="0.0" y="24.5" width="414" height="43.5"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="GCr-By-3hI" id="t8E-cf-eWG">
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="tbY-Dq-xrL" id="sgr-1I-aMa"/>
+                            <outlet property="delegate" destination="tbY-Dq-xrL" id="O3R-Dj-ado"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Discover" id="Hr5-T6-M63"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="sSq-pi-SDz" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-262" y="987"/>
+        </scene>
+        <!--Discover-->
+        <scene sceneID="lij-hx-jPr">
+            <objects>
+                <navigationController id="pPz-2q-lIq" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Discover" image="discover" selectedImage="discover" id="Wd0-Nz-blJ"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="eHF-UJ-bFd">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="tbY-Dq-xrL" kind="relationship" relationship="rootViewController" id="oOk-ct-mew"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="2Qh-GT-VAn" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-262" y="198"/>
+        </scene>
         <!--Navigation Controller-->
         <scene sceneID="ggh-oh-izD">
             <objects>
@@ -772,6 +818,52 @@
             </objects>
             <point key="canvasLocation" x="647.82608695652175" y="178.79464285714286"/>
         </scene>
+        <!--About-->
+        <scene sceneID="u9L-Sq-Cxi">
+            <objects>
+                <tableViewController id="1A2-vm-Fw8" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="vO0-I7-77l">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="WVa-9x-veT">
+                                <rect key="frame" x="0.0" y="24.5" width="414" height="43.5"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="WVa-9x-veT" id="PyC-nn-7u5">
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="1A2-vm-Fw8" id="j79-Gw-jXP"/>
+                            <outlet property="delegate" destination="1A2-vm-Fw8" id="mD4-2h-yqQ"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="About" id="6Wj-Dm-89Q"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="QOf-Rc-UMj" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1248" y="-404"/>
+        </scene>
+        <!--About-->
+        <scene sceneID="OV9-Z6-fx4">
+            <objects>
+                <navigationController id="5Gc-R2-c7Y" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="About" image="about" selectedImage="about" id="2jP-tL-OhS"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Sga-rA-syE">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="1A2-vm-Fw8" kind="relationship" relationship="rootViewController" id="8IF-eJ-HqS"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="aPw-HQ-otP" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1249" y="372"/>
+        </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="Bfr-Wv-J02">
             <objects>
@@ -783,39 +875,21 @@
                     </tabBar>
                     <connections>
                         <segue destination="ItW-1Z-ce5" kind="relationship" relationship="viewControllers" id="tIn-k1-7hp"/>
-                        <segue destination="FEF-4x-URx" kind="relationship" relationship="viewControllers" id="QHe-1t-fPG"/>
-                        <segue destination="bMv-ew-C8e" kind="relationship" relationship="viewControllers" id="Tj0-sv-Jwg"/>
+                        <segue destination="pPz-2q-lIq" kind="relationship" relationship="viewControllers" id="kC3-ay-ZRL"/>
+                        <segue destination="5Gc-R2-c7Y" kind="relationship" relationship="viewControllers" id="LfL-E8-6lG"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Otw-bI-4Vf" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-874" y="-601"/>
-        </scene>
-        <!--Discover-->
-        <scene sceneID="wMV-Nd-Xf5">
-            <objects>
-                <viewControllerPlaceholder storyboardName="Discover" id="FEF-4x-URx" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="jJh-Qq-2Bt"/>
-                </viewControllerPlaceholder>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Hbd-jb-AMW" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-1115" y="-186"/>
-        </scene>
-        <!--About-->
-        <scene sceneID="drR-wO-PDz">
-            <objects>
-                <viewControllerPlaceholder storyboardName="About" id="bMv-ew-C8e" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="8V0-4G-zmJ"/>
-                </viewControllerPlaceholder>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="tif-MC-vDi" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-656" y="-186"/>
+            <point key="canvasLocation" x="-262.31884057971018" y="-601.33928571428567"/>
         </scene>
     </scenes>
     <resources>
+        <image name="about" width="23" height="21"/>
         <image name="angry" width="78" height="103"/>
         <image name="arrow.down.doc" catalog="system" width="115" height="128"/>
         <image name="cool" width="78" height="83"/>
+        <image name="discover" width="35" height="20"/>
         <image name="empty" width="310" height="372"/>
         <image name="favorite" width="22" height="22"/>
         <image name="happy" width="78" height="86"/>
